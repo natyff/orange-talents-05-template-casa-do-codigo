@@ -29,6 +29,4 @@ public class AutorEntity {
         this.descricao = autorDto.getDescricao();
         this.dataHoraRegistro = LocalDateTime.now();
     }
-
-
 }

@@ -28,4 +28,8 @@ public class AutorDto {
         return descricao;
     }
 
+    @Override
+    public String toString(){
+        return "Nome: " + nome + ", E-mail: " + email + ", Descrição: " + descricao;
+    }
 }

@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.validation.Valid;
 
 
-
 @RestController
 @RequestMapping("/autor")
 public class AutorController {
@@ -25,7 +24,6 @@ public class AutorController {
     public ResponseEntity<String> novoAutor (@RequestBody @Valid AutorDto autor){
         AutorEntity autorEntity = new AutorEntity(autor);
         autorRepository.save(autorEntity);
-        return ResponseEntity.ok("Autor criado");
-
+        return ResponseEntity.ok(autor.toString());
     }
 }
