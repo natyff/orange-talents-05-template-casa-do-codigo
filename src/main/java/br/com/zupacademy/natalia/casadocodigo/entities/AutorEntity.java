@@ -1,8 +1,6 @@
 package br.com.zupacademy.natalia.casadocodigo.entities;
 
-import br.com.zupacademy.natalia.casadocodigo.dto.AutorDto;
-import org.hibernate.type.LocalDateTimeType;
-import org.hibernate.type.LocalDateType;
+import br.com.zupacademy.natalia.casadocodigo.dto.AutorDtoRequest;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -23,10 +21,11 @@ public class AutorEntity {
     private LocalDateTime dataHoraRegistro;
 
 
-    public AutorEntity(AutorDto autorDto){
-        this.nome = autorDto.getNome();
-        this.email = autorDto.getEmail();
-        this.descricao = autorDto.getDescricao();
+    public AutorEntity(AutorDtoRequest autorDtoRequest){
+        this.nome = autorDtoRequest.getNome();
+        this.email = autorDtoRequest.getEmail();
+        this.descricao = autorDtoRequest.getDescricao();
         this.dataHoraRegistro = LocalDateTime.now();
     }
+    public AutorEntity(){};
 }
