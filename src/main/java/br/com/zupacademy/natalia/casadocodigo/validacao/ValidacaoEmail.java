@@ -16,17 +16,18 @@ public class ValidacaoEmail implements Validator {
     @Autowired
     AutorRepository autorRepository;
 
+
     @Override
     public boolean supports(Class<?> aClass) {
         return AutorDtoRequest.class.isAssignableFrom(aClass);
     }
+
 
     @Override
     public void validate(Object o, Errors errors) {
         if(errors.hasErrors()){
             return;
         }
-
         AutorDtoRequest dto = (AutorDtoRequest) o;
         Optional<AutorEntity> possivelAutor = autorRepository.findByEmail(dto.getEmail());
 

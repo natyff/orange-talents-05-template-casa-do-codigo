@@ -1,12 +1,8 @@
 package br.com.zupacademy.natalia.casadocodigo.dto;
 
-
-
-
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
-
 
 public class AutorDtoRequest {
 
@@ -16,7 +12,6 @@ public class AutorDtoRequest {
     private String email;
     @NotBlank @Size(max = 400, message = "Descrição máximo de 400 caracteres")
     private String descricao;
-
 
     public String getNome() {
         return nome;
