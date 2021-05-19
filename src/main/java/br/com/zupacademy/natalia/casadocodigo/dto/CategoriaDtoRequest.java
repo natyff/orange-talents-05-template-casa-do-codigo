@@ -1,10 +1,13 @@
 package br.com.zupacademy.natalia.casadocodigo.dto;
 
+import br.com.zupacademy.natalia.casadocodigo.entities.CategoriaEntity;
+import br.com.zupacademy.natalia.casadocodigo.validacao.ValorUnico;
 import javax.validation.constraints.NotBlank;
 
 public class CategoriaDtoRequest {
 
     @NotBlank
+    @ValorUnico(domainClass = CategoriaEntity.class, fieldName = "nomeCategoria")
     private String nomeCategoria;
 
     public CategoriaDtoRequest(String nomeCategoria) {
