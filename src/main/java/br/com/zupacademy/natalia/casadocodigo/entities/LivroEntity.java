@@ -36,4 +36,14 @@ public class LivroEntity {
         this.categoria = em.find(CategoriaEntity.class, livro.getCategoriaId());
         this.autor = em.find(AutorEntity.class, livro.getAutorId());
     }
+
+    public LivroEntity(){};
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getTitulo() {
+        return titulo;
+    }
 }

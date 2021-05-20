@@ -15,7 +15,6 @@ public class LivroDtoRequest {
 
     @NotBlank @ValorUnico(domainClass = LivroEntity.class, fieldName = "titulo")
     private String titulo;
-
     @NotBlank @Size(max = 500)
     private String resumo;
     private String sumario;
