@@ -2,12 +2,12 @@ package br.com.zupacademy.natalia.casadocodigo.dto;
 
 import br.com.zupacademy.natalia.casadocodigo.entities.LivroEntity;
 
-public class LivroDto {
+public class LivroListaDto {
 
     private Long id;
     private String titulo;
 
-    public LivroDto(LivroEntity livroEntity){
+    public LivroListaDto(LivroEntity livroEntity){
         this.id = livroEntity.getId();
         this.titulo = livroEntity.getTitulo();
     }

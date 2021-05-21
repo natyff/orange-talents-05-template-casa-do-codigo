@@ -46,4 +46,32 @@ public class LivroEntity {
     public String getTitulo() {
         return titulo;
     }
+
+    public String getResumo() {
+        return resumo;
+    }
+
+    public String getSumario() {
+        return sumario;
+    }
+
+    public BigDecimal getPreco() {
+        return preco;
+    }
+
+    public Integer getPaginas() {
+        return paginas;
+    }
+
+    public Integer getIsbn() {
+        return isbn;
+    }
+
+    public Date getDataPublicacao() {
+        return dataPublicacao;
+    }
+
+    public AutorEntity getAutor() {
+        return autor;
+    }
 }
