@@ -11,9 +11,8 @@ public class CategoriaEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-
     private String nomeCategoria;
+
 
     public CategoriaEntity(CategoriaDtoRequest categoriaDto) {
         this.nomeCategoria = categoriaDto.getNomeCategoria();

@@ -10,20 +10,20 @@ import java.util.List;
 
 public class ExistIdValidator implements ConstraintValidator<ExistId, Object> {
 
-    private String attibute;
+    private String attribute;
     private Class<?> classe;
     @PersistenceContext
     private EntityManager em;
 
     @Override
     public void initialize(ExistId param) {
-        attibute = param.fieldValue();
+        attribute = param.fieldValue();
         classe = param.domainClass();
     }
 
     @Override
     public boolean isValid(Object s, ConstraintValidatorContext constraintValidatorContext) {
-        Query query = em.createQuery("select 1 from " + classe.getName()+ " where "+attibute+" =:value");
+        Query query = em.createQuery("select 1 from " + classe.getName()+ " where "+attribute+" =:value");
         query.setParameter("value", s);
         List<?> list = query.getResultList();
         if(list.size() < 1){
