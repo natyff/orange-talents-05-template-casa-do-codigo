@@ -1,12 +1,13 @@
 package br.com.zupacademy.natalia.casadocodigo.validacao;
 
+import org.springframework.util.Assert;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 import java.util.List;
-
 
 public class ExistIdValidator implements ConstraintValidator<ExistId, Object> {
 
@@ -23,13 +24,13 @@ public class ExistIdValidator implements ConstraintValidator<ExistId, Object> {
 
     @Override
     public boolean isValid(Object s, ConstraintValidatorContext constraintValidatorContext) {
+        if(s == null) {
+            return true;
+        }
         Query query = em.createQuery("select 1 from " + classe.getName()+ " where "+attribute+" =:value");
         query.setParameter("value", s);
         List<?> list = query.getResultList();
-        if(list.size() < 1){
-            return false;
-        }
-        return true;
-
+        Assert.isTrue(list.size() <= 1);
+        return !list.isEmpty();
     }
 }

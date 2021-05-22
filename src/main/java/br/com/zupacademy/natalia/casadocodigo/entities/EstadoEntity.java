@@ -19,6 +19,7 @@ public class EstadoEntity {
         this.pais = em.find(PaisEntity.class, estado.getIdPais());
     }
 
+    public EstadoEntity(){};
 
     public Long getId() {
         return id;
@@ -31,4 +32,5 @@ public class EstadoEntity {
     public PaisEntity getPais() {
         return pais;
     }
+
 }
