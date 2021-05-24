@@ -41,6 +41,8 @@ public class ClienteDtoRequest {
    @NotBlank
    private String cep;
 
+   public ClienteDtoRequest(){};
+
    public String getEmail() {
       return email;
    }
@@ -85,6 +87,6 @@ public class ClienteDtoRequest {
       return cep;
    }
 
-   public ClienteDtoRequest(){};
+
 
 }

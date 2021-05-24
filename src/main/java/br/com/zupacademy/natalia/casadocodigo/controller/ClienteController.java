@@ -1,8 +1,10 @@
 package br.com.zupacademy.natalia.casadocodigo.controller;
 
 import br.com.zupacademy.natalia.casadocodigo.dto.ClienteDtoRequest;
+import br.com.zupacademy.natalia.casadocodigo.dto.ClienteResponseDto;
 import br.com.zupacademy.natalia.casadocodigo.entities.ClienteEntity;
 import br.com.zupacademy.natalia.casadocodigo.repository.ClienteRepository;
+import br.com.zupacademy.natalia.casadocodigo.repository.EstadoRepository;
 import br.com.zupacademy.natalia.casadocodigo.validacao.EstadoPertencePais;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -23,6 +25,9 @@ public class ClienteController {
     ClienteRepository clienteRepository;
 
     @Autowired
+    EstadoRepository estadoRepository;
+
+    @Autowired
     private EstadoPertencePais estadoPertencePais;
 
     @InitBinder
@@ -34,11 +39,11 @@ public class ClienteController {
     EntityManager em;
 
     @PostMapping
-    public ResponseEntity<String> novoCliente(@RequestBody @Valid ClienteDtoRequest cliente){
+    public ResponseEntity<ClienteResponseDto> novoCliente(@RequestBody @Valid ClienteDtoRequest cliente){
         ClienteEntity clienteEntity = new ClienteEntity(cliente, em);
-        clienteRepository.save(clienteEntity);
-        return ResponseEntity.ok(cliente.toString());
-
+        ClienteEntity clienteSalvo = clienteRepository.save(clienteEntity);
+        ClienteResponseDto response = new ClienteResponseDto(clienteSalvo);
+        return ResponseEntity.ok(response);
     }
 
 
